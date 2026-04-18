@@ -4,14 +4,14 @@ import java.util.List;
 
 public class MyLinkedList<T> implements MyLinkedListInterface<T> {
 
-    public int size = 0;
-    public Node<T> head;
-    public Node<T> tail;
+    private int size = 0;
+    private Node<T> head;
+    private Node<T> tail;
 
-     public static class Node<T> {
-        public T value;
-        public Node<T> next;
-        public Node<T> prev;
+    private static class Node<T> {
+        private T value;
+        private Node<T> next;
+        private Node<T> prev;
 
         public Node(T value) {
             this.value = value;
@@ -72,19 +72,19 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
 
     @Override
     public void addAll(List<T> list) {
-         for (T value : list) {
-             add(value);
-         }
+        for (T value : list) {
+            add(value);
+        }
     }
 
     @Override
     public T get(int index) {
-         checkIndex(index);
-         Node<T> current = head;
-         for (int i = 0; i < index; i++) {
-             current = current.next;
-         }
-         return current.value;
+        checkIndex(index);
+        Node<T> current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.value;
     }
 
     @Override
@@ -124,7 +124,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     public boolean remove(T object) {
         Node<T> current = head;
         while (current != null) {
-            if (current.value == null ? object == null : current.value.equals(object)){
+            if (current.value == null ? object == null : current.value.equals(object)) {
                 if (current.prev != null) {
                     current.prev.next = current.next;
                 } else {
@@ -141,7 +141,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             current = current.next;
         }
         return false;
-     }
+    }
 
     @Override
     public int size() {
@@ -150,7 +150,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
 
     @Override
     public boolean isEmpty() {
-        if(size == 0) {;
+        if (size == 0) {
             return true;
         }
         return false;
