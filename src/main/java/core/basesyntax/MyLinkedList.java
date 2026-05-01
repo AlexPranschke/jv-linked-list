@@ -2,6 +2,7 @@ package core.basesyntax;
 
 import java.util.List;
 
+
 public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     private int size = 0;
     private Node<T> head;
@@ -82,16 +83,14 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     @Override
     public T get(int index) {
         checkIndex(index);
-        Node<T> current = head;
-        current = findNodeByIndex(index);
+        Node<T> current = findNodeByIndex(index);
         return current.value;
     }
 
     @Override
     public T set(T value, int index) {
         checkIndex(index);
-        Node<T> current = head;
-        current = findNodeByIndex(index);
+        Node<T> current = findNodeByIndex(index);
         T oldValue = current.value;
         current.value = value;
         return oldValue;
@@ -100,10 +99,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     @Override
     public T remove(int index) {
         checkIndex(index);
-        Node<T> current = head;
-        for (int i = 0; i < index; i++) {
-            current = current.next;
-        }
+        Node<T> current = findNodeByIndex(index);
         if (current.prev != null) {
             current.prev.next = current.next;
         } else {
